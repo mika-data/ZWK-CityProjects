@@ -388,7 +388,9 @@ function targets(){
 function render(scrollY){
  var px=img.data,o=0,dim=dark?.74:1,cr=clean[0],cg=clean[1],cb=clean[2];
  tiles.forEach(function(t){if(t.free)return;var pw=t.pd.width,ph=t.pd.height;
-  t.ox=((((t.ox0+scrollY*t.sx*sc)%pw)+pw)%pw)|0;t.oy=((((t.oy0+scrollY*t.sy*sc)%ph)+ph)%ph)|0});
+  // with x,y translation of the materials
+  // t.ox=((((t.ox0+scrollY*t.sx*sc)%pw)+pw)%pw)|0;t.oy=((((t.oy0+scrollY*t.sy*sc)%ph)+ph)%ph)|0});
+  t.ox=t.ox0|0;t.oy=t.oy0|0;});
  for(var y=0;y<H;y++){for(var x=0;x<W;x++){
   var i=y*W+x,t=tiles[tileOf[i]],e=t.e,r,g,b;
   if(t.free||e>=.999){r=cr;g=cg;b=cb}
